@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SongApp</string>
+    <string name="linearLayoutManager">android.support.v7.widget.LinearLayoutManager</string>
+</resources>
