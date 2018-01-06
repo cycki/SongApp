@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.2'
 
     defaultConfig {
         minSdkVersion 21
@@ -12,6 +11,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_URL", "\"https://itunes.apple.com/\""
     }
 
     buildTypes {
@@ -24,6 +24,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':domain')
 
     testImplementation 'junit:junit:4.12'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -31,8 +32,10 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.android.support:support-annotations:$supportlib_version"
     implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "joda-time:joda-time:2.9.9"
+    implementation 'com.jakewharton.timber:timber:4.6.0'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation 'com.jakewharton.timber:timber:4.6.0'
-    compile project(path: ':domain')
 }

@@ -19,7 +19,7 @@ import javax.inject.Inject
     val loadCommand = RxCommand(this::load)
 
     private fun load(param: Unit): Single<Unit> {
-        return getSongs.execute(EnumSet.of(SourceType.Local)).observeOn(Schedulers.computation()).doOnSuccess {
+        return getSongs.execute(EnumSet.of(SourceType.Remote)).observeOn(Schedulers.computation()).doOnSuccess {
             songs.value = it
         }.map { }
     }
