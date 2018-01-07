@@ -14,25 +14,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/list_height_items_2_dense"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/marginSmall"
+        android:paddingEnd="@dimen/marginMedium"
+        android:paddingStart="@dimen/marginMedium"
+        android:paddingTop="@dimen/marginSmall">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{model.name}"
+                tools:text="Name name nam"/>
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginMedium"
+                android:text="@{String.valueOf(model.year)}"
+                android:visibility="@{model.year == null ? View.INVISIBLE : View.VISIBLE}"
+                tools:text="year"/>
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{model.name}"
-            tools:text="name"/>
-
-        <TextView
+            style="@style/TextAppearance.AppCompat.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{model.artist}"
             tools:text="artist"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(model.year)}"
-            android:visibility="@{model.year == null ? View.INVISIBLE : View.VISIBLE}"
-            tools:text="year"/>
     </LinearLayout>
 </layout>
