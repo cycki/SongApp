@@ -1,2 +1,2 @@
-<manifest package="pl.mkwiecinski.songapp"
+<manifest package="pl.mkwiecinski.songapp.data"
           xmlns:android="http://schemas.android.com/apk/res/android"/>

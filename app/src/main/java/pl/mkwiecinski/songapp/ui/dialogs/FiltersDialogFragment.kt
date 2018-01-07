@@ -4,7 +4,7 @@ import android.content.Context
 import android.databinding.ObservableField
 import android.support.v7.app.AlertDialog
 import pl.mkwiecinski.songapp.R
-import pl.mkwiecinski.songapp.domain.extensions.enumSetOf
+import pl.mkwiecinski.songapp.domain.extensions.enumSetOfNone
 import pl.mkwiecinski.songapp.domain.usecases.SourceType
 import pl.mkwiecinski.songapp.shared.value
 import java.util.*
@@ -13,7 +13,7 @@ class FiltersDialogFragment(context: Context,
                             private val selected: ObservableField<EnumSet<SourceType>>) {
     private val builder = AlertDialog.Builder(context, R.style.Theme_AppCompat_Light_Dialog)
 
-    private val tempValue = selected.value?.clone() ?: enumSetOf<SourceType>()
+    private val tempValue = selected.value?.clone() ?: enumSetOfNone<SourceType>()
 
     private val source = SourceType.values()
 

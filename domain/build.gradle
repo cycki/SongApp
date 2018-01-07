@@ -6,5 +6,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     implementation "com.android.support:support-annotations:$supportlib_version"
 
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    testImplementation "com.nhaarman:mockito-kotlin:$mockitokotlin_version"
 }
 
