@@ -16,7 +16,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -62,15 +62,14 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     implementation 'com.jakewharton.timber:timber:4.6.0'
-    implementation "joda-time:joda-time:2.9.9"
+    implementation 'joda-time:joda-time:2.9.9'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
-    releaseImplementation  'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"
     testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     testImplementation "com.nhaarman:mockito-kotlin:$mockitokotlin_version"
-    testImplementation "org.robolectric:robolectric:3.6.1"
+    testImplementation 'org.robolectric:robolectric:3.6.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(path: ':domain')

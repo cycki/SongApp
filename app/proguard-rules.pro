@@ -20,5 +20,29 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+# searchview
+-keep class android.support.v7.widget.SearchView {
+   public <init>(android.content.Context);
+   public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+# retrofit
+-dontwarn okhttp3.**
 -dontwarn okio.**
 -dontwarn javax.annotation.**
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
+
+# dagger
+-dontwarn com.google.errorprone.annotations.*
+
+## Joda Time 2.3
+-dontwarn org.joda.convert.**
+-dontwarn org.joda.time.**
+-keep class org.joda.time.** { *; }
+-keep interface org.joda.time.** { *; }

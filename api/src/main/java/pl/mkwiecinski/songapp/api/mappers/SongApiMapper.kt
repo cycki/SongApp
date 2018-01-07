@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class SongApiMapper @Inject constructor() {
     fun map(api: SearchResultApiModel): LibraryModel {
-        return (api.results?.map(this::map) ?: listOf<SongModel>()).let(::LibraryModel)
+        return api.results.orEmpty().map(this::map).let(::LibraryModel)
     }
 
     private fun map(api: SingleResultModel): SongModel {
