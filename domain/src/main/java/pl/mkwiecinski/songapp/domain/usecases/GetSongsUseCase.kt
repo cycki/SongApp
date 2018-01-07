@@ -2,25 +2,25 @@ package pl.mkwiecinski.songapp.domain.usecases
 
 import io.reactivex.Single
 import pl.mkwiecinski.songapp.domain.ISchedulerProvider
-import pl.mkwiecinski.songapp.domain.extensions.enumSetOf
+import pl.mkwiecinski.songapp.domain.extensions.enumSetOfAll
+import pl.mkwiecinski.songapp.domain.models.GetSongsParam
 import pl.mkwiecinski.songapp.domain.models.LibraryModel
 import pl.mkwiecinski.songapp.domain.models.SongModel
 import pl.mkwiecinski.songapp.domain.repository.ILocalSongsRepository
 import pl.mkwiecinski.songapp.domain.repository.IRemoteSongsRepository
-import java.util.*
 
 class GetSongsUseCase(private val remote: IRemoteSongsRepository,
                       private val local: ILocalSongsRepository,
                       private val schedulers: ISchedulerProvider) {
-    fun execute(sourceType: EnumSet<SourceType>): Single<List<SongModel>> {
-        val sources = if (sourceType.isEmpty()) {
-            enumSetOf<SourceType>()
+    fun execute(param: GetSongsParam): Single<List<SongModel>> {
+        val sources = if (param.source.isEmpty()) {
+            enumSetOfAll()
         } else {
-            sourceType
+            param.source
         }.map {
             when (it) {
-                SourceType.Local -> local.all()
-                SourceType.Remote -> remote.all()
+                SourceType.Local -> local.all(param.searchQuery)
+                SourceType.Remote -> remote.all(param.searchQuery)
             }
         }
         return Single.zip(sources, {

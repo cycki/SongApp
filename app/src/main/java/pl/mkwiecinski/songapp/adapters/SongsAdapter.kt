@@ -1,4 +1,4 @@
-package pl.mkwiecinski.songapp
+package pl.mkwiecinski.songapp.adapters
 
 import android.databinding.ObservableList
 import android.support.v7.widget.RecyclerView

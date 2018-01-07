@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">SongApp</string>
     <string name="linearLayoutManager">android.support.v7.widget.LinearLayoutManager</string>
+    <string name="search">Search</string>
+    <string name="filters">Filters</string>
+    <string name="remote">Remote</string>
+    <string name="local">Local</string>
+    <string name="error">Error</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">@android:string/cancel</string>
+    <string name="choose_source">Choose source</string>
 </resources>

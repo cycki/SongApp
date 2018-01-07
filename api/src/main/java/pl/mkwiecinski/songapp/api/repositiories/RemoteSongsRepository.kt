@@ -10,7 +10,7 @@ import javax.inject.Inject
 class RemoteSongsRepository @Inject constructor(private val api: ILibraryEndpoint,
                                                 private val mapper: SongApiMapper) :
         IRemoteSongsRepository {
-    override fun all(): Single<LibraryModel> {
-        return api.search("test").map(mapper::map)
+    override fun all(searchQuery: String): Single<LibraryModel> {
+        return api.search(searchQuery).map(mapper::map)
     }
 }
