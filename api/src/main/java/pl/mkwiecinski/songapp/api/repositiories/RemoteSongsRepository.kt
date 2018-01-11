@@ -10,6 +10,11 @@ import javax.inject.Inject
 class RemoteSongsRepository @Inject constructor(private val api: ILibraryEndpoint,
                                                 private val mapper: SongApiMapper) :
         IRemoteSongsRepository {
+    /**
+     * @param[searchQuery] value used to get proper song library
+     *
+     * @return [Single] which will emit a [LibraryModel]
+     */
     override fun all(searchQuery: String): Single<LibraryModel> {
         return api.search(searchQuery).map(mapper::map)
     }
